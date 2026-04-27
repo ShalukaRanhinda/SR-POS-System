@@ -197,6 +197,11 @@ class OrderController {
                 window.dashboardController.updateDashboard();
             }
             
+            // Refresh items list
+            if (window.itemController) {
+                window.itemController.loadItems();
+            }
+            
         } catch (error) {
             this.showMessage(error.message, 'error');
         }

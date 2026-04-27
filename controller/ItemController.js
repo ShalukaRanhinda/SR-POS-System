@@ -5,10 +5,12 @@ class ItemController {
         this.initializeElements();
         this.bindEvents();
         this.loadItems();
+        this.resetForm();
     }
 
     initializeElements() {
         this.codeInput = document.getElementById('itemCode');
+        if (this.codeInput) this.codeInput.readOnly = true;
         this.nameInput = document.getElementById('itemName');
         this.priceInput = document.getElementById('itemPrice');
         this.qtyInput = document.getElementById('itemQty');
@@ -130,7 +132,7 @@ class ItemController {
     }
 
     resetForm() {
-        if (this.codeInput) this.codeInput.value = '';
+        if (this.codeInput) this.codeInput.value = ItemModel.generateNewCode();
         if (this.nameInput) this.nameInput.value = '';
         if (this.priceInput) this.priceInput.value = '';
         if (this.qtyInput) this.qtyInput.value = '';

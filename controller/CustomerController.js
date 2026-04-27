@@ -4,10 +4,12 @@ class CustomerController {
         this.initializeElements();
         this.bindEvents();
         this.loadCustomers();
+        this.resetForm();
     }
 
     initializeElements() {
         this.idInput = document.getElementById('customerId');
+        if (this.idInput) this.idInput.readOnly = true;
         this.nameInput = document.getElementById('customerName');
         this.emailInput = document.getElementById('customerEmail');
         this.nicInput = document.getElementById('customerNic');
@@ -119,7 +121,7 @@ class CustomerController {
     }
 
     resetForm() {
-        if (this.idInput) this.idInput.value = '';
+        if (this.idInput) this.idInput.value = CustomerModel.generateNewId();
         if (this.nameInput) this.nameInput.value = '';
         if (this.emailInput) this.emailInput.value = '';
         if (this.nicInput) this.nicInput.value = '';
